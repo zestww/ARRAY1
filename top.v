@@ -1,0 +1,863 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 2022/08/10 23:38:24
+// Design Name: 
+// Module Name: top
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+`define Data_width          8
+`define IC          96
+`define Group_num          6
+
+module top(
+input clk,
+input rst,
+
+input wr_en1,
+input wr_en2,
+input wr_en3,
+
+input  [`Data_width - 1 : 0]    din1,
+input  [`Data_width - 1 : 0]    din2,
+input  [`Data_width - 1 : 0]    din3,
+
+input  [`Data_width - 1 : 0]    data_row_in1,
+input  [`Data_width - 1 : 0]    data_row_in2,
+input  [`Data_width - 1 : 0]    data_row_in3,
+
+input valid_row_in1,
+input valid_row_in2,
+input valid_row_in3
+    );
+
+
+wire  [`Data_width - 1 : 0]    col_data  [`IC - 1 : 0];
+wire  col_valid [`IC - 1 : 0];
+wire  [`Data_width - 1 : 0]    data_row_in  [3:0];
+wire  valid_row_in  [3:0];
+
+assign valid_row_in[1] = valid_row_in1;
+assign valid_row_in[2] = valid_row_in2;
+assign valid_row_in[3] = valid_row_in3;
+
+assign data_row_in[1] = data_row_in1;
+assign data_row_in[2] = data_row_in2;
+assign data_row_in[3] = data_row_in3;
+
+sa sa_inst(
+.clk(clk),
+.rst(rst),
+/*端口0
+ */
+.col_data_0(col_data[0]),
+.col_valid_0(col_valid[0]),
+/*端口1
+ */
+.col_data_1(col_data[1]),
+.col_valid_1(col_valid[1]),
+/*端口2
+ */
+.col_data_2(col_data[2]),
+.col_valid_2(col_valid[2]),
+/*端口3
+ */
+.col_data_3(col_data[3]),
+.col_valid_3(col_valid[3]),
+/*端口4
+ */
+.col_data_4(col_data[4]),
+.col_valid_4(col_valid[4]),
+/*端口5
+ */
+.col_data_5(col_data[5]),
+.col_valid_5(col_valid[5]),
+/*端口6
+ */
+.col_data_6(col_data[6]),
+.col_valid_6(col_valid[6]),
+/*端口7
+ */
+.col_data_7(col_data[7]),
+.col_valid_7(col_valid[7]),
+/*端口8
+ */
+.col_data_8(col_data[8]),
+.col_valid_8(col_valid[8]),
+/*端口9
+ */
+.col_data_9(col_data[9]),
+.col_valid_9(col_valid[9]),
+/*端口10
+ */
+.col_data_10(col_data[10]),
+.col_valid_10(col_valid[10]),
+/*端口11
+ */
+.col_data_11(col_data[11]),
+.col_valid_11(col_valid[11]),
+/*端口12
+ */
+.col_data_12(col_data[12]),
+.col_valid_12(col_valid[12]),
+/*端口13
+ */
+.col_data_13(col_data[13]),
+.col_valid_13(col_valid[13]),
+/*端口14
+ */
+.col_data_14(col_data[14]),
+.col_valid_14(col_valid[14]),
+/*端口15
+ */
+.col_data_15(col_data[15]),
+.col_valid_15(col_valid[15]),
+/*端口16
+ */
+.col_data_16(col_data[16]),
+.col_valid_16(col_valid[16]),
+/*端口17
+ */
+.col_data_17(col_data[17]),
+.col_valid_17(col_valid[17]),
+/*端口18
+ */
+.col_data_18(col_data[18]),
+.col_valid_18(col_valid[18]),
+/*端口19
+ */
+.col_data_19(col_data[19]),
+.col_valid_19(col_valid[19]),
+/*端口20
+ */
+.col_data_20(col_data[20]),
+.col_valid_20(col_valid[20]),
+/*端口21
+ */
+.col_data_21(col_data[21]),
+.col_valid_21(col_valid[21]),
+/*端口22
+ */
+.col_data_22(col_data[22]),
+.col_valid_22(col_valid[22]),
+/*端口23
+ */
+.col_data_23(col_data[23]),
+.col_valid_23(col_valid[23]),
+/*端口24
+ */
+.col_data_24(col_data[24]),
+.col_valid_24(col_valid[24]),
+/*端口25
+ */
+.col_data_25(col_data[25]),
+.col_valid_25(col_valid[25]),
+/*端口26
+ */
+.col_data_26(col_data[26]),
+.col_valid_26(col_valid[26]),
+/*端口27
+ */
+.col_data_27(col_data[27]),
+.col_valid_27(col_valid[27]),
+/*端口28
+ */
+.col_data_28(col_data[28]),
+.col_valid_28(col_valid[28]),
+/*端口29
+ */
+.col_data_29(col_data[29]),
+.col_valid_29(col_valid[29]),
+/*端口30
+ */
+.col_data_30(col_data[30]),
+.col_valid_30(col_valid[30]),
+/*端口31
+ */
+.col_data_31(col_data[31]),
+.col_valid_31(col_valid[31]),
+/*端口32
+ */
+.col_data_32(col_data[32]),
+.col_valid_32(col_valid[32]),
+/*端口33
+ */
+.col_data_33(col_data[33]),
+.col_valid_33(col_valid[33]),
+/*端口34
+ */
+.col_data_34(col_data[34]),
+.col_valid_34(col_valid[34]),
+/*端口35
+ */
+.col_data_35(col_data[35]),
+.col_valid_35(col_valid[35]),
+/*端口36
+ */
+.col_data_36(col_data[36]),
+.col_valid_36(col_valid[36]),
+/*端口37
+ */
+.col_data_37(col_data[37]),
+.col_valid_37(col_valid[37]),
+/*端口38
+ */
+.col_data_38(col_data[38]),
+.col_valid_38(col_valid[38]),
+/*端口39
+ */
+.col_data_39(col_data[39]),
+.col_valid_39(col_valid[39]),
+/*端口40
+ */
+.col_data_40(col_data[40]),
+.col_valid_40(col_valid[40]),
+/*端口41
+ */
+.col_data_41(col_data[41]),
+.col_valid_41(col_valid[41]),
+/*端口42
+ */
+.col_data_42(col_data[42]),
+.col_valid_42(col_valid[42]),
+/*端口43
+ */
+.col_data_43(col_data[43]),
+.col_valid_43(col_valid[43]),
+/*端口44
+ */
+.col_data_44(col_data[44]),
+.col_valid_44(col_valid[44]),
+/*端口45
+ */
+.col_data_45(col_data[45]),
+.col_valid_45(col_valid[45]),
+/*端口46
+ */
+.col_data_46(col_data[46]),
+.col_valid_46(col_valid[46]),
+/*端口47
+ */
+.col_data_47(col_data[47]),
+.col_valid_47(col_valid[47]),
+/*端口48
+ */
+.col_data_48(col_data[48]),
+.col_valid_48(col_valid[48]),
+/*端口49
+ */
+.col_data_49(col_data[49]),
+.col_valid_49(col_valid[49]),
+/*端口50
+ */
+.col_data_50(col_data[50]),
+.col_valid_50(col_valid[50]),
+/*端口51
+ */
+.col_data_51(col_data[51]),
+.col_valid_51(col_valid[51]),
+/*端口52
+ */
+.col_data_52(col_data[52]),
+.col_valid_52(col_valid[52]),
+/*端口53
+ */
+.col_data_53(col_data[53]),
+.col_valid_53(col_valid[53]),
+/*端口54
+ */
+.col_data_54(col_data[54]),
+.col_valid_54(col_valid[54]),
+/*端口55
+ */
+.col_data_55(col_data[55]),
+.col_valid_55(col_valid[55]),
+/*端口56
+ */
+.col_data_56(col_data[56]),
+.col_valid_56(col_valid[56]),
+/*端口57
+ */
+.col_data_57(col_data[57]),
+.col_valid_57(col_valid[57]),
+/*端口58
+ */
+.col_data_58(col_data[58]),
+.col_valid_58(col_valid[58]),
+/*端口59
+ */
+.col_data_59(col_data[59]),
+.col_valid_59(col_valid[59]),
+/*端口60
+ */
+.col_data_60(col_data[60]),
+.col_valid_60(col_valid[60]),
+/*端口61
+ */
+.col_data_61(col_data[61]),
+.col_valid_61(col_valid[61]),
+/*端口62
+ */
+.col_data_62(col_data[62]),
+.col_valid_62(col_valid[62]),
+/*端口63
+ */
+.col_data_63(col_data[63]),
+.col_valid_63(col_valid[63]),
+/*端口64
+ */
+.col_data_64(col_data[64]),
+.col_valid_64(col_valid[64]),
+/*端口65
+ */
+.col_data_65(col_data[65]),
+.col_valid_65(col_valid[65]),
+/*端口66
+ */
+.col_data_66(col_data[66]),
+.col_valid_66(col_valid[66]),
+/*端口67
+ */
+.col_data_67(col_data[67]),
+.col_valid_67(col_valid[67]),
+/*端口68
+ */
+.col_data_68(col_data[68]),
+.col_valid_68(col_valid[68]),
+/*端口69
+ */
+.col_data_69(col_data[69]),
+.col_valid_69(col_valid[69]),
+/*端口70
+ */
+.col_data_70(col_data[70]),
+.col_valid_70(col_valid[70]),
+/*端口71
+ */
+.col_data_71(col_data[71]),
+.col_valid_71(col_valid[71]),
+/*端口72
+ */
+.col_data_72(col_data[72]),
+.col_valid_72(col_valid[72]),
+/*端口73
+ */
+.col_data_73(col_data[73]),
+.col_valid_73(col_valid[73]),
+/*端口74
+ */
+.col_data_74(col_data[74]),
+.col_valid_74(col_valid[74]),
+/*端口75
+ */
+.col_data_75(col_data[75]),
+.col_valid_75(col_valid[75]),
+/*端口76
+ */
+.col_data_76(col_data[76]),
+.col_valid_76(col_valid[76]),
+/*端口77
+ */
+.col_data_77(col_data[77]),
+.col_valid_77(col_valid[77]),
+/*端口78
+ */
+.col_data_78(col_data[78]),
+.col_valid_78(col_valid[78]),
+/*端口79
+ */
+.col_data_79(col_data[79]),
+.col_valid_79(col_valid[79]),
+/*端口80
+ */
+.col_data_80(col_data[80]),
+.col_valid_80(col_valid[80]),
+/*端口81
+ */
+.col_data_81(col_data[81]),
+.col_valid_81(col_valid[81]),
+/*端口82
+ */
+.col_data_82(col_data[82]),
+.col_valid_82(col_valid[82]),
+/*端口83
+ */
+.col_data_83(col_data[83]),
+.col_valid_83(col_valid[83]),
+/*端口84
+ */
+.col_data_84(col_data[84]),
+.col_valid_84(col_valid[84]),
+/*端口85
+ */
+.col_data_85(col_data[85]),
+.col_valid_85(col_valid[85]),
+/*端口86
+ */
+.col_data_86(col_data[86]),
+.col_valid_86(col_valid[86]),
+/*端口87
+ */
+.col_data_87(col_data[87]),
+.col_valid_87(col_valid[87]),
+/*端口88
+ */
+.col_data_88(col_data[88]),
+.col_valid_88(col_valid[88]),
+/*端口89
+ */
+.col_data_89(col_data[89]),
+.col_valid_89(col_valid[89]),
+/*端口90
+ */
+.col_data_90(col_data[90]),
+.col_valid_90(col_valid[90]),
+/*端口91
+ */
+.col_data_91(col_data[91]),
+.col_valid_91(col_valid[91]),
+/*端口92
+ */
+.col_data_92(col_data[92]),
+.col_valid_92(col_valid[92]),
+/*端口93
+ */
+.col_data_93(col_data[93]),
+.col_valid_93(col_valid[93]),
+/*端口94
+ */
+.col_data_94(col_data[94]),
+.col_valid_94(col_valid[94]),
+/*端口95
+ */
+.col_data_95(col_data[95]),
+.col_valid_95(col_valid[95]),
+
+.data_row_in1(data_row_in[1]),
+.valid_row_in1(valid_row_in[1]),
+
+.data_row_in2(data_row_in[2]),
+.valid_row_in2(valid_row_in[2]),
+
+.data_row_in3(data_row_in[3]),
+.valid_row_in3(valid_row_in[3])
+);  
+
+wire  [`Data_width - 1 : 0]    din  [`Group_num - 1 : 0];
+wire  wr_en  [`Group_num - 1 : 0];
+assign wr_en[1] = wr_en1;assign wr_en[2] = wr_en2;assign wr_en[3] = wr_en3;
+assign din[1] = din1;assign din[2] = din2;assign din[3] = din3;
+
+
+ic_gen ic_inst(
+.clk(clk),
+.rst(rst),
+/*端口0
+ */
+.col_data_0(col_data[0]),
+.col_valid_0(col_valid[0]),
+/*端口1
+ */
+.col_data_1(col_data[1]),
+.col_valid_1(col_valid[1]),
+/*端口2
+ */
+.col_data_2(col_data[2]),
+.col_valid_2(col_valid[2]),
+/*端口3
+ */
+.col_data_3(col_data[3]),
+.col_valid_3(col_valid[3]),
+/*端口4
+ */
+.col_data_4(col_data[4]),
+.col_valid_4(col_valid[4]),
+/*端口5
+ */
+.col_data_5(col_data[5]),
+.col_valid_5(col_valid[5]),
+/*端口6
+ */
+.col_data_6(col_data[6]),
+.col_valid_6(col_valid[6]),
+/*端口7
+ */
+.col_data_7(col_data[7]),
+.col_valid_7(col_valid[7]),
+/*端口8
+ */
+.col_data_8(col_data[8]),
+.col_valid_8(col_valid[8]),
+/*端口9
+ */
+.col_data_9(col_data[9]),
+.col_valid_9(col_valid[9]),
+/*端口10
+ */
+.col_data_10(col_data[10]),
+.col_valid_10(col_valid[10]),
+/*端口11
+ */
+.col_data_11(col_data[11]),
+.col_valid_11(col_valid[11]),
+/*端口12
+ */
+.col_data_12(col_data[12]),
+.col_valid_12(col_valid[12]),
+/*端口13
+ */
+.col_data_13(col_data[13]),
+.col_valid_13(col_valid[13]),
+/*端口14
+ */
+.col_data_14(col_data[14]),
+.col_valid_14(col_valid[14]),
+/*端口15
+ */
+.col_data_15(col_data[15]),
+.col_valid_15(col_valid[15]),
+/*端口16
+ */
+.col_data_16(col_data[16]),
+.col_valid_16(col_valid[16]),
+/*端口17
+ */
+.col_data_17(col_data[17]),
+.col_valid_17(col_valid[17]),
+/*端口18
+ */
+.col_data_18(col_data[18]),
+.col_valid_18(col_valid[18]),
+/*端口19
+ */
+.col_data_19(col_data[19]),
+.col_valid_19(col_valid[19]),
+/*端口20
+ */
+.col_data_20(col_data[20]),
+.col_valid_20(col_valid[20]),
+/*端口21
+ */
+.col_data_21(col_data[21]),
+.col_valid_21(col_valid[21]),
+/*端口22
+ */
+.col_data_22(col_data[22]),
+.col_valid_22(col_valid[22]),
+/*端口23
+ */
+.col_data_23(col_data[23]),
+.col_valid_23(col_valid[23]),
+/*端口24
+ */
+.col_data_24(col_data[24]),
+.col_valid_24(col_valid[24]),
+/*端口25
+ */
+.col_data_25(col_data[25]),
+.col_valid_25(col_valid[25]),
+/*端口26
+ */
+.col_data_26(col_data[26]),
+.col_valid_26(col_valid[26]),
+/*端口27
+ */
+.col_data_27(col_data[27]),
+.col_valid_27(col_valid[27]),
+/*端口28
+ */
+.col_data_28(col_data[28]),
+.col_valid_28(col_valid[28]),
+/*端口29
+ */
+.col_data_29(col_data[29]),
+.col_valid_29(col_valid[29]),
+/*端口30
+ */
+.col_data_30(col_data[30]),
+.col_valid_30(col_valid[30]),
+/*端口31
+ */
+.col_data_31(col_data[31]),
+.col_valid_31(col_valid[31]),
+/*端口32
+ */
+.col_data_32(col_data[32]),
+.col_valid_32(col_valid[32]),
+/*端口33
+ */
+.col_data_33(col_data[33]),
+.col_valid_33(col_valid[33]),
+/*端口34
+ */
+.col_data_34(col_data[34]),
+.col_valid_34(col_valid[34]),
+/*端口35
+ */
+.col_data_35(col_data[35]),
+.col_valid_35(col_valid[35]),
+/*端口36
+ */
+.col_data_36(col_data[36]),
+.col_valid_36(col_valid[36]),
+/*端口37
+ */
+.col_data_37(col_data[37]),
+.col_valid_37(col_valid[37]),
+/*端口38
+ */
+.col_data_38(col_data[38]),
+.col_valid_38(col_valid[38]),
+/*端口39
+ */
+.col_data_39(col_data[39]),
+.col_valid_39(col_valid[39]),
+/*端口40
+ */
+.col_data_40(col_data[40]),
+.col_valid_40(col_valid[40]),
+/*端口41
+ */
+.col_data_41(col_data[41]),
+.col_valid_41(col_valid[41]),
+/*端口42
+ */
+.col_data_42(col_data[42]),
+.col_valid_42(col_valid[42]),
+/*端口43
+ */
+.col_data_43(col_data[43]),
+.col_valid_43(col_valid[43]),
+/*端口44
+ */
+.col_data_44(col_data[44]),
+.col_valid_44(col_valid[44]),
+/*端口45
+ */
+.col_data_45(col_data[45]),
+.col_valid_45(col_valid[45]),
+/*端口46
+ */
+.col_data_46(col_data[46]),
+.col_valid_46(col_valid[46]),
+/*端口47
+ */
+.col_data_47(col_data[47]),
+.col_valid_47(col_valid[47]),
+/*端口48
+ */
+.col_data_48(col_data[48]),
+.col_valid_48(col_valid[48]),
+/*端口49
+ */
+.col_data_49(col_data[49]),
+.col_valid_49(col_valid[49]),
+/*端口50
+ */
+.col_data_50(col_data[50]),
+.col_valid_50(col_valid[50]),
+/*端口51
+ */
+.col_data_51(col_data[51]),
+.col_valid_51(col_valid[51]),
+/*端口52
+ */
+.col_data_52(col_data[52]),
+.col_valid_52(col_valid[52]),
+/*端口53
+ */
+.col_data_53(col_data[53]),
+.col_valid_53(col_valid[53]),
+/*端口54
+ */
+.col_data_54(col_data[54]),
+.col_valid_54(col_valid[54]),
+/*端口55
+ */
+.col_data_55(col_data[55]),
+.col_valid_55(col_valid[55]),
+/*端口56
+ */
+.col_data_56(col_data[56]),
+.col_valid_56(col_valid[56]),
+/*端口57
+ */
+.col_data_57(col_data[57]),
+.col_valid_57(col_valid[57]),
+/*端口58
+ */
+.col_data_58(col_data[58]),
+.col_valid_58(col_valid[58]),
+/*端口59
+ */
+.col_data_59(col_data[59]),
+.col_valid_59(col_valid[59]),
+/*端口60
+ */
+.col_data_60(col_data[60]),
+.col_valid_60(col_valid[60]),
+/*端口61
+ */
+.col_data_61(col_data[61]),
+.col_valid_61(col_valid[61]),
+/*端口62
+ */
+.col_data_62(col_data[62]),
+.col_valid_62(col_valid[62]),
+/*端口63
+ */
+.col_data_63(col_data[63]),
+.col_valid_63(col_valid[63]),
+/*端口64
+ */
+.col_data_64(col_data[64]),
+.col_valid_64(col_valid[64]),
+/*端口65
+ */
+.col_data_65(col_data[65]),
+.col_valid_65(col_valid[65]),
+/*端口66
+ */
+.col_data_66(col_data[66]),
+.col_valid_66(col_valid[66]),
+/*端口67
+ */
+.col_data_67(col_data[67]),
+.col_valid_67(col_valid[67]),
+/*端口68
+ */
+.col_data_68(col_data[68]),
+.col_valid_68(col_valid[68]),
+/*端口69
+ */
+.col_data_69(col_data[69]),
+.col_valid_69(col_valid[69]),
+/*端口70
+ */
+.col_data_70(col_data[70]),
+.col_valid_70(col_valid[70]),
+/*端口71
+ */
+.col_data_71(col_data[71]),
+.col_valid_71(col_valid[71]),
+/*端口72
+ */
+.col_data_72(col_data[72]),
+.col_valid_72(col_valid[72]),
+/*端口73
+ */
+.col_data_73(col_data[73]),
+.col_valid_73(col_valid[73]),
+/*端口74
+ */
+.col_data_74(col_data[74]),
+.col_valid_74(col_valid[74]),
+/*端口75
+ */
+.col_data_75(col_data[75]),
+.col_valid_75(col_valid[75]),
+/*端口76
+ */
+.col_data_76(col_data[76]),
+.col_valid_76(col_valid[76]),
+/*端口77
+ */
+.col_data_77(col_data[77]),
+.col_valid_77(col_valid[77]),
+/*端口78
+ */
+.col_data_78(col_data[78]),
+.col_valid_78(col_valid[78]),
+/*端口79
+ */
+.col_data_79(col_data[79]),
+.col_valid_79(col_valid[79]),
+/*端口80
+ */
+.col_data_80(col_data[80]),
+.col_valid_80(col_valid[80]),
+/*端口81
+ */
+.col_data_81(col_data[81]),
+.col_valid_81(col_valid[81]),
+/*端口82
+ */
+.col_data_82(col_data[82]),
+.col_valid_82(col_valid[82]),
+/*端口83
+ */
+.col_data_83(col_data[83]),
+.col_valid_83(col_valid[83]),
+/*端口84
+ */
+.col_data_84(col_data[84]),
+.col_valid_84(col_valid[84]),
+/*端口85
+ */
+.col_data_85(col_data[85]),
+.col_valid_85(col_valid[85]),
+/*端口86
+ */
+.col_data_86(col_data[86]),
+.col_valid_86(col_valid[86]),
+/*端口87
+ */
+.col_data_87(col_data[87]),
+.col_valid_87(col_valid[87]),
+/*端口88
+ */
+.col_data_88(col_data[88]),
+.col_valid_88(col_valid[88]),
+/*端口89
+ */
+.col_data_89(col_data[89]),
+.col_valid_89(col_valid[89]),
+/*端口90
+ */
+.col_data_90(col_data[90]),
+.col_valid_90(col_valid[90]),
+/*端口91
+ */
+.col_data_91(col_data[91]),
+.col_valid_91(col_valid[91]),
+/*端口92
+ */
+.col_data_92(col_data[92]),
+.col_valid_92(col_valid[92]),
+/*端口93
+ */
+.col_data_93(col_data[93]),
+.col_valid_93(col_valid[93]),
+/*端口94
+ */
+.col_data_94(col_data[94]),
+.col_valid_94(col_valid[94]),
+/*端口95
+ */
+.col_data_95(col_data[95]),
+.col_valid_95(col_valid[95]),
+
+.din1(din[1]),
+.wr_en1(wr_en[1]),
+
+.din2(din[2]),
+.wr_en2(wr_en[2]),
+
+.din3(din[3]),
+.wr_en3(wr_en[3])
+);
+    
+    
+endmodule

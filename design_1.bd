@@ -1,0 +1,300 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0x3BAFA2819BF57C31",
+      "device": "xczu9eg-ffvb1156-2-e",
+      "gen_directory": "../../../../Array.gen/sources_1/bd/design_1",
+      "name": "design_1",
+      "rev_ctrl_bd_flag": "RevCtrlBdOff",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2020.2",
+      "validated": "true"
+    },
+    "design_tree": {
+      "ddr4_0": "",
+      "rw_rev_0": ""
+    },
+    "interface_ports": {
+      "ddr4_sdram_062": {
+        "mode": "Master",
+        "vlnv": "xilinx.com:interface:ddr4_rtl:1.0",
+        "parameters": {
+          "AXI_ARBITRATION_SCHEME": {
+            "value": "RD_PRI_REG",
+            "value_src": "user_prop"
+          },
+          "BURST_LENGTH": {
+            "value": "8",
+            "value_src": "user_prop"
+          },
+          "CAN_DEBUG": {
+            "value": "false",
+            "value_src": "default"
+          },
+          "CAS_LATENCY": {
+            "value": "18",
+            "value_src": "user_prop"
+          },
+          "CAS_WRITE_LATENCY": {
+            "value": "12",
+            "value_src": "user_prop"
+          },
+          "CS_ENABLED": {
+            "value": "true",
+            "value_src": "user_prop"
+          },
+          "CUSTOM_PARTS": {
+            "value": "no_file_loaded",
+            "value_src": "user_prop"
+          },
+          "DATA_MASK_ENABLED": {
+            "value": "DM_NO_DBI",
+            "value_src": "user_prop"
+          },
+          "DATA_WIDTH": {
+            "value": "16",
+            "value_src": "user_prop"
+          },
+          "MEMORY_PART": {
+            "value": "MT40A256M16LY-062E",
+            "value_src": "user_prop"
+          },
+          "MEMORY_TYPE": {
+            "value": "Components",
+            "value_src": "user_prop"
+          },
+          "MEM_ADDR_MAP": {
+            "value": "ROW_COLUMN_BANK",
+            "value_src": "user_prop"
+          },
+          "SLOT": {
+            "value": "Single",
+            "value_src": "user_prop"
+          },
+          "TIMEPERIOD_PS": {
+            "value": "833",
+            "value_src": "user_prop"
+          }
+        }
+      },
+      "user_si570_sysclk": {
+        "mode": "Slave",
+        "vlnv": "xilinx.com:interface:diff_clock_rtl:1.0",
+        "parameters": {
+          "CAN_DEBUG": {
+            "value": "false",
+            "value_src": "default"
+          },
+          "FREQ_HZ": {
+            "value": "300000000"
+          }
+        }
+      }
+    },
+    "ports": {
+      "reset": {
+        "type": "rst",
+        "direction": "I",
+        "parameters": {
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "POLARITY": {
+            "value": "ACTIVE_HIGH"
+          }
+        }
+      },
+      "c0_init_calib_complete": {
+        "direction": "O"
+      },
+      "din": {
+        "direction": "I",
+        "left": "127",
+        "right": "0"
+      },
+      "wr_en": {
+        "direction": "I"
+      },
+      "rst_n": {
+        "type": "rst",
+        "direction": "I",
+        "parameters": {
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "POLARITY": {
+            "value": "ACTIVE_LOW",
+            "value_src": "default"
+          }
+        }
+      },
+      "ui_clk": {
+        "type": "clk",
+        "direction": "O",
+        "parameters": {
+          "CLK_DOMAIN": {
+            "value": "design_1_ddr4_0_0_c0_ddr4_ui_clk",
+            "value_src": "default_prop"
+          },
+          "FREQ_HZ": {
+            "value": "300000000",
+            "value_src": "user_prop"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.00",
+            "value_src": "const_prop"
+          }
+        }
+      }
+    },
+    "components": {
+      "ddr4_0": {
+        "vlnv": "xilinx.com:ip:ddr4:2.2",
+        "xci_name": "design_1_ddr4_0_0",
+        "xci_path": "ip\\design_1_ddr4_0_0\\design_1_ddr4_0_0.xci",
+        "inst_hier_path": "ddr4_0",
+        "parameters": {
+          "C0_CLOCK_BOARD_INTERFACE": {
+            "value": "user_si570_sysclk"
+          },
+          "C0_DDR4_BOARD_INTERFACE": {
+            "value": "ddr4_sdram_062"
+          },
+          "RESET_BOARD_INTERFACE": {
+            "value": "reset"
+          }
+        },
+        "addressing": {
+          "memory_maps": {
+            "C0_DDR4_MEMORY_MAP": {
+              "address_blocks": {
+                "C0_DDR4_ADDRESS_BLOCK": {
+                  "base_address": "0",
+                  "range": "512M",
+                  "width": "29",
+                  "usage": "memory"
+                }
+              }
+            }
+          }
+        },
+        "interface_ports": {
+          "C0_DDR4_S_AXI": {
+            "mode": "Slave",
+            "memory_map_ref": "C0_DDR4_MEMORY_MAP"
+          }
+        }
+      },
+      "rw_rev_0": {
+        "vlnv": "xilinx.com:user:rw_rev:1.0",
+        "xci_name": "design_1_rw_rev_0_2",
+        "xci_path": "ip\\design_1_rw_rev_0_2\\design_1_rw_rev_0_2.xci",
+        "inst_hier_path": "rw_rev_0",
+        "addressing": {
+          "address_spaces": {
+            "AXI": {
+              "range": "512M",
+              "width": "29"
+            }
+          }
+        },
+        "interface_ports": {
+          "AXI": {
+            "mode": "Master",
+            "address_space_ref": "AXI",
+            "base_address": {
+              "minimum": "0x00000000",
+              "maximum": "0x1FFFFFFF",
+              "width": "29"
+            }
+          }
+        }
+      }
+    },
+    "interface_nets": {
+      "ddr4_0_C0_DDR4": {
+        "interface_ports": [
+          "ddr4_sdram_062",
+          "ddr4_0/C0_DDR4"
+        ]
+      },
+      "user_si570_sysclk_1": {
+        "interface_ports": [
+          "user_si570_sysclk",
+          "ddr4_0/C0_SYS_CLK"
+        ]
+      },
+      "rw_rev_0_AXI": {
+        "interface_ports": [
+          "rw_rev_0/AXI",
+          "ddr4_0/C0_DDR4_S_AXI"
+        ]
+      }
+    },
+    "nets": {
+      "reset_1": {
+        "ports": [
+          "reset",
+          "ddr4_0/sys_rst",
+          "rw_rev_0/rst"
+        ]
+      },
+      "ddr4_0_c0_init_calib_complete": {
+        "ports": [
+          "ddr4_0/c0_init_calib_complete",
+          "c0_init_calib_complete"
+        ]
+      },
+      "ddr4_0_c0_ddr4_ui_clk": {
+        "ports": [
+          "ddr4_0/c0_ddr4_ui_clk",
+          "ui_clk",
+          "rw_rev_0/clk"
+        ]
+      },
+      "rst_n_1": {
+        "ports": [
+          "rst_n",
+          "ddr4_0/c0_ddr4_aresetn"
+        ]
+      },
+      "din_1": {
+        "ports": [
+          "din",
+          "rw_rev_0/din"
+        ]
+      },
+      "wr_en_1": {
+        "ports": [
+          "wr_en",
+          "rw_rev_0/wr_en"
+        ]
+      }
+    },
+    "addressing": {
+      "/rw_rev_0": {
+        "address_spaces": {
+          "AXI": {
+            "segments": {
+              "SEG_ddr4_0_C0_DDR4_ADDRESS_BLOCK": {
+                "address_block": "/ddr4_0/C0_DDR4_MEMORY_MAP/C0_DDR4_ADDRESS_BLOCK",
+                "offset": "0x00000000",
+                "range": "512M"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
